@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 마이바티스 3 Configuration DTO -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 마이바티스 3 서정 항목을 넣는 태그 -->
+<!-- 최상위 부모 객체 -->
+<configuration>
+
+	<!-- 프로젝트 (프로그램)가 접속할 수 있도록 DB정보들을 설정할 수 있다 -->
+	<environments default="development">
+
+		<!-- 접속할 DB에 대한 정보 -->
+		<environment id="development">
+
+			<!-- JDBC를 이용하여 트랜잭션을 관리하도록 설정한다 -->
+			<transactionManager type="JDBC" />
+
+			<!-- DB접속 방법 -->
+			<dataSource type="pooled">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="username" value="scott" />
+				<property name="password" value="1234" />
+			</dataSource>
+
+		</environment>
+
+	</environments>
+
+	<!-- SQL쿼리들을 작성해둘 마이바티스 매퍼(Mapper) 파일들의 위치를 설정한다 -->
+	<mappers>
+		<mapper resource="dao/EmpMapper.xml" />
+	</mappers>
+	
+</configuration>
